@@ -1,0 +1,34 @@
+/* Mobile Portrait */
+@media screen and (min-width: 200px) and (max-width: 414px) and (orientation: portrait) {
+    .app{
+        flex-direction: column;
+    }
+    .app>img {
+        display: none;
+    }
+    main form {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem .5rem;
+        gap: .2rem;
+    }
+}
+
+/* Mobile Landscape */
+@media screen and (min-width: 200px) and (max-width: 915px) and (orientation: landscape) {
+}
+
+/* Tablet Portrait */
+@media screen and (min-width: 415px) and (max-width: 912px) and (orientaion: portrait) {
+    main form {
+        display: flex;
+        flex-direction: column;
+        padding: 2rem 1rem;
+        gap: 1rem;
+      }
+}
+
+/* Tablet Landscape */
+@media screen and (min-width: 916px) and (max-width: 1180px) and (orientation: landscape) {
+  
+}
