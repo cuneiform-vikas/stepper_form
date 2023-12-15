@@ -25,7 +25,7 @@ const AcadmicInfo = ({ formik, setCurrStep }) => {
     if (Object.keys(img).length <= 5) {
       setUploadImg(Object.values(img).map((item) => item));
     } else {
-      console.log("Only 5 images are allowed");
+      alert("Only 5 images are allowed");
       event.target.value = null;
     }
   };
@@ -35,23 +35,22 @@ const AcadmicInfo = ({ formik, setCurrStep }) => {
     setUploadImg([...uploadImg, img]);
   };
 
-  const deleteImg = () => {
-    formik.setFieldValue("images", "");
-    setUploadImg(null);
-  };
-
   const deleteDocument = () => {
     formik.setFieldValue("document", "");
     setUploadDoc(null);
   };
 
+  const deleteImg = () => {
+    formik.setFieldValue("images", "");
+    setUploadImg(null);
+  };
+
   const removeImgByClick = (items) => {
     if (uploadImg.length === 1) {
       deleteImg();
-      return;
+    } else {
+      setUploadImg(uploadImg.filter((item) => item !== items));
     }
-
-    setUploadImg(uploadImg.filter((item) => item !== items));
   };
 
   useEffect(() => {
@@ -98,6 +97,7 @@ const AcadmicInfo = ({ formik, setCurrStep }) => {
                 <div key={index} className="img-wrapper">
                   <img alt="uploaded_image" src={URL.createObjectURL(items)} />
                   <button
+                    type="button"
                     id="delete_image"
                     onClick={() => removeImgByClick(items)}
                   >
@@ -149,6 +149,9 @@ const AcadmicInfo = ({ formik, setCurrStep }) => {
         </button>
         <button
           type="button"
+          disabled={
+            formik.values.document && formik.values.images ? false : true
+          }
           onClick={() => {
             if (formik.values.document && formik.values.images) setCurrStep(2);
           }}

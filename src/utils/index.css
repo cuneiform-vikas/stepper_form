@@ -30,25 +30,26 @@ button {
   height: 100%;
   width: 100%;
   display: flex;
+  justify-content: center;
   background: rgb(207, 199, 214);
 }
 
-.app img {
+.app > img {
   flex: 1;
-  width: 100%;
-  height: 100%;
   object-fit: cover;
 }
 
 .app main {
-  flex: 2;
-  padding: 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* _______Stepper Header Styling_________  */
 main .stepper {
   display: flex;
-  justify-content: center;
   align-items: center;
   padding: 1rem;
 }
@@ -70,7 +71,8 @@ main .stepper {
 }
 
 .stepper .row {
-  width: 20%;
+  width: 100%;
+  min-width: 3rem;
   border: 1px solid gray;
 }
 
@@ -82,8 +84,8 @@ main .stepper {
 main form {
   display: flex;
   flex-direction: column;
-  padding: 2rem 8rem;
-  gap: 0.4rem;
+  max-width: 48rem;
+  padding: 1rem;
 }
 
 form input {
@@ -94,7 +96,13 @@ form .error {
   font-size: small;
   color: red;
 }
+
 /* ____Acadmic Information Styles____ */
+form .form-document,
+.upload-document,
+.form-images-box {
+  margin-bottom: 0.2rem;
+}
 
 .uploaded-document button {
   background: transparent;
@@ -103,8 +111,10 @@ form .error {
 
 .img-container {
   display: flex;
-  gap: 1rem;
+  align-items: center;
+  gap: 0.3rem;
   flex-wrap: wrap;
+  justify-content: start;
 }
 
 .img-wrapper {
@@ -132,7 +142,11 @@ form .toggle-btns button {
 }
 
 /* ____Review Component Style___ */
-.review-form-data .review-img{
+.review-form-data p {
+  padding: 0.3rem;
+  margin: 0;
+}
+.review-form-data .review-img {
   margin-left: 1rem;
   width: 120px;
   height: 120px;
